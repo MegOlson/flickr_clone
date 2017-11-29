@@ -1,24 +1,53 @@
-# README
+# Flickr Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Specifications
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Images:
+  * Belong to User
+  * Have many Categories
+  * Have many User_Tags
+  * Have many Favorites
+  * Have many comments
+  * Store:
+    * Photo
+    * Title
+    * Caption
+    * user_id
+* Users:
+  * Have many images
+  * Have many User_tags
+  * Have many Favorites
+  * Have many comments
+  * Store:
+    * Name
+    * Email
+    * Password
+    * is_admin
+* Categories:
+  * Have many images
+  * Store:
+    * Name
+* Categories_Images:
+  * _Join Table_
+  * Store:
+    * category_id
+    * image_id
+* User_tags:
+  * Belongs to User
+  * Belongs to Image
+  * Store:
+    * user_id
+    * image_id
+* Favorites:
+  * Belongs to User
+  * Belongs to Image
+  * Store:
+    * user_id
+    * image_id
+* Comments:
+  * Belong to User
+  * Belong to Image
+  * Stores:
+    * content
+    * user_id
+    * image_id

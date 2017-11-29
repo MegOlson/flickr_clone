@@ -1,0 +1,11 @@
+<% if @images.any? %>
+  <ul>
+    <% @images.each do |image| %>
+      <li> <%= image.title %> </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no images.</p>
+<% end %>
+
+<%= link_to "Upload Image", new_image_path %>
