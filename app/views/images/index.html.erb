@@ -1,9 +1,10 @@
 <% if @images.any? %>
-  <ul>
-    <% @images.each do |image| %>
-      <li> <%= image.title %> </li>
-    <% end %>
-  </ul>
+  <% @images.each do |image| %>
+    <div class="image">
+      <h4><%= link_to image.title, image_path(image) %></h4>
+      <%= image_tag(image.photo.url(:thumb)) %>
+    </div>
+  <% end %>
 <% else %>
   <p>There are no images.</p>
 <% end %>
