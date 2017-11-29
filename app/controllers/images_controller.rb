@@ -23,6 +23,8 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
+    @categories = Category.all
+    @category = Category.first
   end
 
   def edit
