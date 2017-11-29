@@ -20,7 +20,10 @@
 
 <% if @image.categories.any? %>
   <% @image.categories.each do |category| %>
-    <p><%= link_to category.name, category_path(category) %></p>
+    <p>
+      <%= link_to category.name, category_path(category) %> |
+      <%= link_to "Remove", image_category_path(@image, category), data: { method: "delete" }%>
+    </p>
   <% end %>
 <% else %>
   <p>There are no categories.</p>

@@ -23,6 +23,14 @@ class CategoriesController < ApplicationController
     redirect_to image_path(@image)
   end
 
+  def destroy
+    @image = Image.find(params[:image_id])
+    @category = Category.find(params[:id])
+    @image.categories.delete(@category)
+    flash[:notice] = "Category removed."
+    redirect_to image_path(@image)
+  end
+
 private
   def category_params
     params.permit(:name)
