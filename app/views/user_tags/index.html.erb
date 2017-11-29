@@ -1,0 +1,12 @@
+<h1>Photos of <%= @user.name %> </h1>
+
+<% if @tags.any? %>
+  <% @tags.each do |tag| %>
+    <div class="image">
+      <h4><%= link_to tag.image.title, image_path(tag.image) %></h4>
+      <%= image_tag(tag.image.photo.url(:thumb)) %>
+    </div>
+  <% end %>
+<% else %>
+  <p>There are no pictures of <%= @user.name %>.</p>
+<% end %>
