@@ -1,4 +1,9 @@
 class FavoritesController < ApplicationController
+  def index
+    @user = User.find(params[:user_id])
+    @favorites = @user.favorites
+  end
+
   def create
     @image = Image.find(params[:image_id])
     @favorite = @image.favorites.new
