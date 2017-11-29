@@ -1,0 +1,8 @@
+<h2> <%= @image.title %> </h2>
+<h4> <%= @image.user.name %> </h4>
+
+<div class="image">
+  <%= image_tag(@image.photo.url(:medium)) %>
+</div>
+
+<p> <%= @image.caption %> </p>
