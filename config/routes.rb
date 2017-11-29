@@ -5,9 +5,8 @@ Rails.application.routes.draw do
 
   resources :images do
     resources :categories, only: [:create, :update, :destroy]
+    resources :favorites, only: [:create, :destroy]
   end
   resources :categories
-
-
 
 end
