@@ -25,7 +25,10 @@ class UserTagsController < ApplicationController
   end
 
   def destroy
-    
+    @image = Image.find(params[:image_id])
+    @tag = @image.user_tags.find(params[:id])
+    @tag.destroy
+    flash[:notice] = "User untagged."
+    redirect_to image_path(@image)
   end
-
 end

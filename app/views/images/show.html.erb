@@ -19,7 +19,7 @@
   <% @image.user_tags.each do |tag| %>
     <p>
       <%= link_to tag.user.name, user_path(tag.user) %>
-      <%= link_to "Untag", image_user_tag_path(@image, tag) %>
+      <%= link_to "Untag", image_user_tag_path(@image, tag), data: {method: 'delete'} %>
     </p>
   <% end %>
 <% else %>
