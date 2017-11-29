@@ -2,7 +2,12 @@ class ImagesController < ApplicationController
    skip_before_action :authenticate_user!, :only => [:index]
 
   def index
-    @images = Image.all
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @images = @user.images
+    else
+      @images = Image.all
+    end
   end
 
   def new

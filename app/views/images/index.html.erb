@@ -1,4 +1,8 @@
-<h1>Images</h1>
+<% if @user %>
+  <h1><%= @user.name %>'s Images</h1>
+<% else %>
+  <h1>Images</h1>
+<% end %>
 <hr>
 
 <% if @images.any? %>
