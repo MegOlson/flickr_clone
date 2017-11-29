@@ -1,5 +1,5 @@
 <h2> <%= @image.title %> </h2>
-<h4> <%= @image.user.name %> </h4>
+<h4> <%= link_to @image.user.name, user_path(@image.user) %> </h4>
 
 <% if !current_user.get_favorite(@image) %>
   <%= form_tag(image_favorites_path(@image), method: 'post') do %>
