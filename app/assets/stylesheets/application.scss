@@ -1,2 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.btn {
+  margin: 5px;
+  background-color: grey;
+  border-color: grey;
+}
+
+.btn:hover {
+  background-color: darkgrey;
+  border-color: darkgrey;
+}
