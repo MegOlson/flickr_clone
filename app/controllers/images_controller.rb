@@ -50,6 +50,18 @@ class ImagesController < ApplicationController
     end
   end
 
+  def destroy
+    @image = Image.find(params[:id])
+    if @image.user == current_user
+      @image.destroy
+      flash[:notice] = "Image deleted."
+      redirect_to images_path
+    else
+      flash[:alert] = "I can't let you do that."
+      redirect_to image_path(@image)
+    end
+  end
+
 private
   def image_params
     params.require(:image).permit(:title, :caption, :photo)

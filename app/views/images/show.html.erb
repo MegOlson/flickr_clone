@@ -8,5 +8,11 @@
 <p> <%= @image.caption %> </p>
 
 <% if @image.user == current_user %>
-  <p> <%= link_to "Edit", edit_image_path(@image) %> </p>
+  <p>
+    <%= link_to "Edit", edit_image_path(@image) %> |
+    <%= link_to "Delete", image_path(@image), data: {
+                confirm: "This will permanently delete this image. Are you sure?",
+                method: "delete"
+                } %>
+  </p>
 <% end %>
