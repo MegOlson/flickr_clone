@@ -6,3 +6,7 @@
 </div>
 
 <p> <%= @image.caption %> </p>
+
+<% if @image.user == current_user %>
+  <p> <%= link_to "Edit", edit_image_path(@image) %> </p>
+<% end %>

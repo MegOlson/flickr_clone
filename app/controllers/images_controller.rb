@@ -25,6 +25,31 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
   end
 
+  def edit
+    @image = Image.find(params[:id])
+    if @image.user == current_user
+      render :edit
+    else
+      flash[:alert] = "I can't let you do that."
+      redirect_to image_path(@image)
+    end
+  end
+
+  def update
+    @image = Image.find(params[:id])
+    if @image.user == current_user
+      if @image.update(image_params)
+        flash[:notice] = "Updates saved!"
+        redirect_to image_path(@image)
+      else
+        flash[:alert] = "Something went wrong!"
+      end
+    else
+      flash[:alert] = "I can't let you do that."
+      redirect_to image_path(@image)
+    end
+  end
+
 private
   def image_params
     params.require(:image).permit(:title, :caption, :photo)
