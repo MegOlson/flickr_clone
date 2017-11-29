@@ -1,3 +1,6 @@
+<h1>Images</h1>
+<hr>
+
 <% if @images.any? %>
   <% @images.each do |image| %>
     <div class="image">
@@ -8,5 +11,5 @@
 <% else %>
   <p>There are no images.</p>
 <% end %>
-
+<hr>
 <%= link_to "Upload Image", new_image_path %>

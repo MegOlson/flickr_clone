@@ -11,4 +11,8 @@ FactoryBot.define do
     title("Test Photo")
     photo { File.new("#{Rails.root}/spec/support/fixtures/image.jpeg")}
   end
+
+  factory(:category) do
+    name("Test Tag")
+  end
 end
