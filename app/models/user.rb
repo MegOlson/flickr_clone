@@ -10,4 +10,8 @@ class User < ApplicationRecord
   def get_favorite(image)
     self.favorites.where(image: image).take
   end
+
+  def get_tag(image)
+    self.user_tags.where(image: image).take
+  end
 end

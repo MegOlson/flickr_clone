@@ -30,6 +30,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @categories = Category.all
     @category = Category.first
+    @users = User.all
   end
 
   def edit
