@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :images
   has_many :favorites
+  has_many :comments
   has_many :user_tags
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

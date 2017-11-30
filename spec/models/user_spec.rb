@@ -4,4 +4,5 @@ describe User do
   it { should have_many :images }
   it { should have_many :favorites }
   it { should have_many :user_tags }
+  it { should have_many :comments }
 end
