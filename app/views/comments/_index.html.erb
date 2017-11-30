@@ -1,5 +1,5 @@
 <% if @image.comments.any? %>
-  <% @image.comments.each do |comment| %>
+  <% @image.comments.chronological.each do |comment| %>
     <% if comment == @comment %>
       <h4>Edit Comment</h4>
       <%= render "comments/form" %>
