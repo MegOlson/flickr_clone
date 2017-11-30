@@ -15,4 +15,10 @@ FactoryBot.define do
   factory(:category) do
     name("Test Tag")
   end
+
+  factory(:comment) do
+    association :user, factory: :user, name: "Test", email: "test@test.com"
+    image
+    content("Test comment.")
+  end
 end

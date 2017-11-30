@@ -126,5 +126,7 @@
   <p>No saved comments.</p>
 <% end %>
 
-<h4>Post a Comment</h4>
-<%= render "comments/form" %>
+<% if @comment.id == nil %>
+  <h4>Post a Comment</h4>
+  <%= render "comments/form" %>
+<% end %>
