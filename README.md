@@ -71,7 +71,7 @@ No known bugs
     * image_id
 
 
-##Technologies Used
+## Technologies Used
 
 * HTML
 * CSS
@@ -81,8 +81,23 @@ No known bugs
 
 Admin and authorization made with the help of this tutorial: http://codepany.com/blog/rails-5-user-accounts-with-3-types-of-roles-devise-rails_admin-cancancan/
 
-##Support and Contact Details
+## Support and Contact Details
 
 Feel free to contact Megan at meganannetteolson@yahoo.com or Kelsey at kels.langlois@gmail.com
 
-##License
+### License
+
+Copyright (c) 2017 **Megan Olson and Kelsey Langlois**
+
+<!-- Contributors START
+megan_annette_olson MegOlson https://github.com/MegOlson code tests
+kelsey_langlois langlk https://github.com/langlk code tests
+Contributors END -->
+<!-- Contributors table START -->
+| <img src="https://avatars.githubusercontent.com/MegOlson?s=100" width="100" alt="megan annette olson" /><br />[<sub>megan annette olson</sub>](https://github.com/MegOlson)<br />[💻](https://github.com/MegOlson/flickr_clone/commits?author=MegOlson) [⚠️](https://github.com/MegOlson/flickr_clone/commits?author=MegOlson) | <img src="https://avatars.githubusercontent.com/langlk?s=100" width="100" alt="kelsey langlois" /><br />[<sub>kelsey langlois</sub>](https://github.com/langlk)<br />[💻](https://github.com/MegOlson/flickr_clone/commits?author=langlk) [⚠️](https://github.com/MegOlson/flickr_clone/commits?author=langlk) |
+| :---: | :---: |
+<!-- Contributors table END -->
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.
+
+
+*This software is licensed under the MIT license.*
