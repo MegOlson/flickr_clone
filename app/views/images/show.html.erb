@@ -58,7 +58,7 @@
 <div class="image-categories">
   <div class="categories-list">
     <% if @image.categories.any? %>
-      <% @image.categories.each do |category| %>
+      <% @image.categories.alphabetical.each do |category| %>
         <p>
           <strong><%= link_to category.name, category_path(category) %></strong> |
           <%= link_to "Remove", image_category_path(@image, category), data: { method: "delete" }%>

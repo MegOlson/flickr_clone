@@ -28,7 +28,7 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
-    @categories = Category.all
+    @categories = Category.alphabetical
     @category = Category.first
     @users = User.all
     @comment = Comment.new
