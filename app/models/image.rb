@@ -10,4 +10,5 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   scope :reverse_chronological, -> { order("created_at DESC") }
+  scope :recent, -> { order("created_at DESC").limit(3) }
 end
