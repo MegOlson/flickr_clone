@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130165904) do
+ActiveRecord::Schema.define(version: 20171130193812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,8 +35,10 @@ ActiveRecord::Schema.define(version: 20171130165904) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "image_id"
+    t.integer  "user_id"
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "images", force: :cascade do |t|
@@ -52,8 +54,10 @@ ActiveRecord::Schema.define(version: 20171130165904) do
   end
 
   create_table "user_tags", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "image_id"
+    t.integer  "user_id"
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|

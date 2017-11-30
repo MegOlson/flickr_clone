@@ -1,7 +1,8 @@
 <div class="user-profile">
   <h1><%= @user.name %></h1>
   <hr>
-  <h3><%= link_to "Favorites", user_favorites_path(@user) %></h3>
+  <h3 class="user-subheader"><%= link_to "Favorites", user_favorites_path(@user) %></h3>
+
   <h3 class="user-subheader"><%= link_to "Images", user_images_path(@user) %></h3>
   <div class="user-images images-list">
     <% @user.images.recent.each do |image| %>
@@ -11,5 +12,13 @@
       </div>
     <% end %>
   </div>
-  <h3><%= link_to "Tagged Photos", user_user_tags_path(@user) %></h3>
+  <h3 class="user-subheader"><%= link_to "Tagged Photos", user_user_tags_path(@user) %></h3>
+  <div class="user-images images-list">
+    <% @user.user_tags.recent.each do |tag| %>
+      <div class="image">
+        <h4><%= link_to tag.image.title, image_path(tag.image) %></h4>
+        <%= image_tag(tag.image.photo.url(:thumb)) %>
+      </div>
+    <% end %>
+  </div>
 </div>
