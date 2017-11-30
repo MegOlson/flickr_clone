@@ -12,11 +12,32 @@ class CommentsController < ApplicationController
   end
 
   def edit
-
+    @image = Image.find(params[:image_id])
+    @categories = Category.all
+    @category = Category.first
+    @users = User.all
+    @comment = @image.comments.find(params[:id])
+    if @comment.user == current_user
+      render template: "images/show"
+    else
+      flash[:alert] = "You aren't authorized to do that."
+      redirect_to image_path(@image)
+    end
   end
 
   def update
-
+    @image = Image.find(params[:image_id])
+    @comment = @image.comments.find(params[:id])
+    if @comment.user == current_user
+      if @comment.update(comment_params)
+        flash[:notice] = "Comment updated!"
+      else
+        flash[:alert] = "Something went wrong!"
+      end
+    else
+      flash[:alert] = "You aren't authorized to do that."
+    end
+    redirect_to image_path(@image)
   end
 
   def destroy
