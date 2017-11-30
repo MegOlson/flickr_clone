@@ -41,7 +41,15 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-
+    @image = Image.find(params[:image_id])
+    @comment = @image.comments.find(params[:id])
+    if @comment.user == current_user
+      @comment.destroy
+      flash[:notice] = "Comment deleted."
+    else
+      flash[:alert] = "You are not authorized to do this."
+    end
+    redirect_to image_path(@image)
   end
 private
   def comment_params
