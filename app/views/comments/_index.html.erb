@@ -1,0 +1,28 @@
+<% if @image.comments.any? %>
+  <% @image.comments.each do |comment| %>
+    <% if comment == @comment %>
+      <h4>Edit Comment</h4>
+      <%= render "comments/form" %>
+    <% else %>
+      <blockquote class="blockquote comment">
+        <div class="comment-content">
+          <% if current_user == comment.user %>
+          <p class="comment-options">
+            <%= link_to "Edit", edit_image_comment_path(@image, comment) %> |
+            <%= link_to "Delete", image_comment_path(@image, comment), data: {
+              confirm: "This will permanently delete this comment. Are you sure?",
+              method: "delete"
+              } %>
+            </p>
+            <% end %>
+          <p><%= comment.content %></p>
+        </div>
+        <footer class="blockquote-footer">
+          <%= link_to comment.user.name, user_path(comment.user) %>
+        </footer>
+      </blockquote>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>No saved comments.</p>
+<% end %>
