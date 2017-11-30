@@ -4,9 +4,9 @@ class ImagesController < ApplicationController
   def index
     if params[:user_id]
       @user = User.find(params[:user_id])
-      @images = @user.images
+      @images = @user.images.reverse_chronological
     else
-      @images = Image.all
+      @images = Image.reverse_chronological
     end
   end
 
