@@ -8,7 +8,7 @@ class UserTagsController < ApplicationController
   def create
     @image = Image.find(params[:image_id])
     @tag = @image.user_tags.new
-    @user = User.find(params[:user][:id])
+    @user = User.find(params[:user][:id]) # params = { image_id: 1, user: {id: 3}}
     if @user.get_tag(@image)
       flash[:alert] = "User already tagged."
       redirect_to image_path(@image)
