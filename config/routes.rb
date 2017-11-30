@@ -7,10 +7,11 @@ Rails.application.routes.draw do
     resources :categories, only: [:create, :update, :destroy]
     resources :favorites, only: [:create, :destroy]
     resources :user_tags, only: [:create, :destroy]
+    resources :comments, except: [:index, :show, :new]
   end
 
   resources :categories, only: [:index, :show]
-  
+
   resources :users, only: [:show] do
     resources :favorites, only: [:index]
     resources :images, only: [:index]

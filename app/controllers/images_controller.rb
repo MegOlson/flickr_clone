@@ -31,6 +31,7 @@ class ImagesController < ApplicationController
     @categories = Category.all
     @category = Category.first
     @users = User.all
+    @comment = Comment.new
   end
 
   def edit
