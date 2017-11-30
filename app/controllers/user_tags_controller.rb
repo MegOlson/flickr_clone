@@ -15,6 +15,7 @@ class UserTagsController < ApplicationController
     else
       @tag.user = @user
       if @tag.save
+        UserMailer.image_tag(@user, @image).deliver
         flash[:notice] = "User tagged!"
         redirect_to image_path(@image)
       else
