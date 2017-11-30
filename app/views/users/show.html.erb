@@ -2,7 +2,14 @@
   <h1><%= @user.name %></h1>
   <hr>
   <h3 class="user-subheader"><%= link_to "Favorites", user_favorites_path(@user) %></h3>
-
+  <div class="user-images images-list">
+    <% @user.favorites.recent.each do |favorite| %>
+      <div class="image">
+        <h4><%= link_to favorite.image.title, image_path(favorite.image) %></h4>
+        <%= image_tag(favorite.image.photo.url(:thumb)) %>
+      </div>
+    <% end %>
+  </div>
   <h3 class="user-subheader"><%= link_to "Images", user_images_path(@user) %></h3>
   <div class="user-images images-list">
     <% @user.images.recent.each do |image| %>
