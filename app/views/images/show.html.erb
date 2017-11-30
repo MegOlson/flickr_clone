@@ -3,15 +3,26 @@
     <h2><%= @image.title %></h2>
     <h4> <%= link_to @image.user.name, user_path(@image.user) %> </h4>
   </div>
-  <% if !current_user.get_favorite(@image) %>
-    <%= form_tag(image_favorites_path(@image), method: 'post') do %>
-      <%= submit_tag "Favorite", class: 'btn btn-primary' %>
+  <div class="image-options">
+    <% if @image.user == current_user %>
+      <div class="image-edit">
+        <%= link_to "Edit", edit_image_path(@image) %> |
+        <%= link_to "Delete", image_path(@image), data: {
+                    confirm: "This will permanently delete this image. Are you sure?",
+                    method: "delete"
+                    } %>
+      </div>
     <% end %>
-  <% else %>
-    <%= form_tag(image_favorite_path(@image, current_user.get_favorite(@image)), method: 'delete') do %>
-      <%= submit_tag "Unfavorite", class: 'btn btn-primary' %>
+    <% if !current_user.get_favorite(@image) %>
+      <%= form_tag(image_favorites_path(@image), method: 'post') do %>
+        <%= submit_tag "Favorite", class: 'btn btn-primary' %>
+      <% end %>
+    <% else %>
+      <%= form_tag(image_favorite_path(@image, current_user.get_favorite(@image)), method: 'delete') do %>
+        <%= submit_tag "Unfavorite", class: 'btn btn-primary' %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 
 <hr>
@@ -44,17 +55,9 @@
   </div>
 </div>
 
-<p> <%= @image.caption %> </p>
+<blockquote class="blockquote"> <%= @image.caption %> </blockquote>
 
-<% if @image.user == current_user %>
-  <p>
-    <%= link_to "Edit", edit_image_path(@image) %> |
-    <%= link_to "Delete", image_path(@image), data: {
-                confirm: "This will permanently delete this image. Are you sure?",
-                method: "delete"
-                } %>
-  </p>
-<% end %>
+
 
 <h3>Categories</h3>
 <hr>

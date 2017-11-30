@@ -27,8 +27,15 @@
   align-items: center;
 }
 
+.image-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .image-section {
   display: flex;
+  margin-bottom: 1em;
 }
 
 .user-tags {
