@@ -1,5 +1,23 @@
 # Flickr Clone
 
+##Description
+
+A Web Application that mimicks the popular photo site, Flickr. Users can create a profile and upload images for all other users to see. User's can favorite, comment, and tag images.
+
+##Installation and Setup
+
+* Clone Repository: `flickr_clone`
+* Run the following commands in your Terminal:
+  * `$ cd flickr_clone`
+  * `$ bundle update`
+  * `$ rake db:setup`
+  * `$ rails serve`
+* Navigate to 'localhost:3000' in your browser of choice.
+
+##Known Bugs
+
+No known bugs
+
 ## Specifications
 
 * Images:
@@ -51,3 +69,18 @@
     * content
     * user_id
     * image_id
+
+
+##Technologies Used
+
+* HTML
+* CSS
+* Bootstrap
+* Ruby/Rails
+* ActiveRecord
+
+##Support and Contact Details
+
+Feel free to contact Megan at meganannetteolson@yahoo.com or Kelsey at kels.langlois@gmail.com
+
+##License
