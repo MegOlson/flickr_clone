@@ -18,4 +18,6 @@
   <p>There are no images.</p>
 <% end %>
 <hr>
-<%= link_to "Upload Image", new_image_path %>
+<% if !@user %>
+  <%= link_to "Upload Image", new_image_path %>
+<% end %>
