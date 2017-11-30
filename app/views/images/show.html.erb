@@ -1,38 +1,46 @@
-<h2> <%= @image.title %> </h2>
-<h4> <%= link_to @image.user.name, user_path(@image.user) %> </h4>
-
-<% if !current_user.get_favorite(@image) %>
-  <%= form_tag(image_favorites_path(@image), method: 'post') do %>
-    <%= submit_tag "Favorite", class: 'btn btn-primary' %>
+<div class="image-header">
+  <div class="image-title">
+    <h2><%= @image.title %></h2>
+    <h4> <%= link_to @image.user.name, user_path(@image.user) %> </h4>
+  </div>
+  <% if !current_user.get_favorite(@image) %>
+    <%= form_tag(image_favorites_path(@image), method: 'post') do %>
+      <%= submit_tag "Favorite", class: 'btn btn-primary' %>
+    <% end %>
+  <% else %>
+    <%= form_tag(image_favorite_path(@image, current_user.get_favorite(@image)), method: 'delete') do %>
+      <%= submit_tag "Unfavorite", class: 'btn btn-primary' %>
+    <% end %>
   <% end %>
-<% else %>
-  <%= form_tag(image_favorite_path(@image, current_user.get_favorite(@image)), method: 'delete') do %>
-    <%= submit_tag "Unfavorite", class: 'btn btn-primary' %>
-  <% end %>
-<% end %>
-
-<div class="image">
-  <%= image_tag(@image.photo.url(:medium)) %>
 </div>
 
-<% if @image.user_tags.any? %>
-  <% @image.user_tags.each do |tag| %>
-    <p>
-      <%= link_to tag.user.name, user_path(tag.user) %> |
-      <%= link_to "Untag", image_user_tag_path(@image, tag), data: {method: 'delete'} %>
-    </p>
-  <% end %>
-<% else %>
-  <p>No users have been tagged in this photo.</p>
-<% end %>
+<hr>
 
-
-<%= form_tag(image_user_tags_path(@image), method: 'post') do %>
-  <%= label_tag "Tag a user" %>
-  <%= collection_select :user, :id, @users, :id, :name, {}, class: 'form-control' %>
-  <%= submit_tag "Tag User", class: 'btn btn-primary' %>
-<% end %>
-
+<div class="image-section">
+  <div class="image">
+    <%= image_tag(@image.photo.url(:medium)) %>
+  </div>
+  <div class="user-tags">
+    <% if @image.user_tags.any? %>
+      <% @image.user_tags.each do |tag| %>
+        <h4>Tagged Users</h4>
+        <p>
+          <strong><%= link_to tag.user.name, user_path(tag.user) %></strong> |
+          <%= link_to "Untag", image_user_tag_path(@image, tag), data: {method: 'delete'} %>
+        </p>
+      <% end %>
+    <% else %>
+      <p>No users have been tagged in this photo.</p>
+    <% end %>
+    <div class="add-tag">
+      <%= form_tag(image_user_tags_path(@image), method: 'post') do %>
+      <%= label_tag "Tag a user" %>
+      <%= collection_select :user, :id, @users, :id, :name, {}, class: 'form-control' %>
+      <%= submit_tag "Tag User", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
 <p> <%= @image.caption %> </p>
 
 <% if @image.user == current_user %>

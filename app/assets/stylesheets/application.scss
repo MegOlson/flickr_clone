@@ -3,6 +3,7 @@
 
 .btn {
   margin: 5px;
+  margin-left: 0px;
   background-color: grey;
   border-color: grey;
 }
@@ -18,4 +19,18 @@
   min-width: 250px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.image-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-section {
+  display: flex;
+}
+
+.user-tags {
+  margin-left: 2em;
 }
