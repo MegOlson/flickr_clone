@@ -79,6 +79,8 @@ No known bugs
 * Ruby/Rails
 * ActiveRecord
 
+Admin and authorization made with the help of this tutorial: http://codepany.com/blog/rails-5-user-accounts-with-3-types-of-roles-devise-rails_admin-cancancan/
+
 ##Support and Contact Details
 
 Feel free to contact Megan at meganannetteolson@yahoo.com or Kelsey at kels.langlois@gmail.com

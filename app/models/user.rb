@@ -8,6 +8,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def admin?
+    self.is_admin
+  end
+
   def get_favorite(image)
     self.favorites.where(image: image).take
   end
