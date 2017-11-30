@@ -9,7 +9,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   def admin?
-    self.is_admin
+    self.admin
   end
 
   def get_favorite(image)

@@ -14,7 +14,6 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'devise'
 gem 'paperclip', '~> 5.0.0'
 gem 'rails_admin', '~> 1.2'
-gem 'cancancan', '~> 2.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

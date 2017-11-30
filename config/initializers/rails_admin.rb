@@ -26,11 +26,15 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new
+    new do
+      except ['User']
+    end
     export
     bulk_delete
     show
-    edit
+    edit do
+      except ['User']
+    end
     delete
     show_in_app
 
@@ -50,5 +54,4 @@ RailsAdmin.config do |config|
       flash[:alert] = "You are not an admin"
     end
   end
-
 end
