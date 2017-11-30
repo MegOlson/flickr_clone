@@ -6,12 +6,14 @@
 <hr>
 
 <% if @images.any? %>
-  <% @images.each do |image| %>
-    <div class="image">
-      <h4><%= link_to image.title, image_path(image) %></h4>
-      <%= image_tag(image.photo.url(:thumb)) %>
-    </div>
-  <% end %>
+  <div class="images-list">
+    <% @images.each do |image| %>
+      <div class="image">
+        <h4><%= link_to image.title, image_path(image) %></h4>
+        <%= image_tag(image.photo.url(:thumb)) %>
+      </div>
+    <% end %>
+  </div>
 <% else %>
   <p>There are no images.</p>
 <% end %>
