@@ -20,6 +20,7 @@
   <div class="image">
     <%= image_tag(@image.photo.url(:medium)) %>
   </div>
+
   <div class="user-tags">
     <% if @image.user_tags.any? %>
       <% @image.user_tags.each do |tag| %>
@@ -32,6 +33,7 @@
     <% else %>
       <p>No users have been tagged in this photo.</p>
     <% end %>
+
     <div class="add-tag">
       <%= form_tag(image_user_tags_path(@image), method: 'post') do %>
       <%= label_tag "Tag a user" %>
@@ -41,6 +43,7 @@
     </div>
   </div>
 </div>
+
 <p> <%= @image.caption %> </p>
 
 <% if @image.user == current_user %>
@@ -53,32 +56,40 @@
   </p>
 <% end %>
 
-<h3>Categories</h3><hr>
-<% if @image.categories.any? %>
-  <% @image.categories.each do |category| %>
-    <p>
-      <%= link_to category.name, category_path(category) %> |
-      <%= link_to "Remove", image_category_path(@image, category), data: { method: "delete" }%>
-    </p>
-  <% end %>
-<% else %>
-  <p>There are no categories.</p>
-<% end %>
-
+<h3>Categories</h3>
 <hr>
-
-<% if current_user %>
-  <% if @categories.any? %>
-    <%= form_tag(image_category_path(@image, @category), method: 'patch') do %>
-      <%= label_tag "Add Existing Category" %>
-      <%= collection_select :category, :id, @categories, :id, :name, {}, class: "form-control" %>
-      <%= submit_tag "Add Category", class: "btn btn-primary" %>
+<div class="image-categories">
+  <div class="categories-list">
+    <% if @image.categories.any? %>
+      <% @image.categories.each do |category| %>
+        <p>
+          <strong><%= link_to category.name, category_path(category) %></strong> |
+          <%= link_to "Remove", image_category_path(@image, category), data: { method: "delete" }%>
+        </p>
+      <% end %>
+    <% else %>
+      <p>There are no categories.</p>
     <% end %>
-  <% end %>
-  <hr>
-  <%= form_tag(image_categories_path(@image), method: 'post') do %>
-    <%= label_tag "New Category" %>
-    <%= text_field_tag :name, nil, class: "form-control" %>
-    <%= submit_tag "Create Category", class: "btn btn-primary" %>
-  <% end %>
-<% end %>
+  </div>
+
+  <div class="add-category">
+    <% if @categories.any? %>
+      <%= form_tag(image_category_path(@image, @category), method: 'patch') do %>
+        <%= label_tag "Add Existing Category" %>
+        <%= collection_select :category, :id, @categories, :id, :name, {}, class: "form-control" %>
+        <%= submit_tag "Add Category", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="create-category">
+    <%= form_tag(image_categories_path(@image), method: 'post') do %>
+      <%= label_tag "Add New Category" %>
+      <%= text_field_tag :name, nil, class: "form-control" %>
+      <%= submit_tag "Create Category", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<h3>Comments</h3>
+<hr>

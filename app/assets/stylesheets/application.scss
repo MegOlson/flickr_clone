@@ -34,3 +34,12 @@
 .user-tags {
   margin-left: 2em;
 }
+
+.image-categories {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-categories > div {
+  width: 28%;
+}
