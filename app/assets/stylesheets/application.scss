@@ -67,3 +67,21 @@
   font-size: 14px;
   text-align: right;
 }
+
+.user-subheader {
+  padding-bottom: .4em;
+  border-bottom: 1px solid #eee;
+}
+
+.user-profile .images-list {
+  flex-wrap: nowrap;
+}
+
+.user-profile .images-list .image {
+  margin-top: .5em;
+  min-width: 100px;
+}
+
+.user-profile .images-list .image img {
+  width: 100%;
+}
