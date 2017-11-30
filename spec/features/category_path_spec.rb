@@ -31,4 +31,21 @@ describe "the category management path" do
     click_on "Remove"
     expect(page).to have_no_content("Tag | Remove")
   end
+
+  it "shows all categories on the index" do
+    visit image_path(@image)
+    fill_in "name", with: "New Category"
+    click_button "Create Category"
+    click_on "Categories"
+    expect(page).to have_content("New Category")
+  end
+
+  it "shows all images for a category on the category page" do
+    visit image_path(@image)
+    fill_in "name", with: "New Category"
+    click_button "Create Category"
+    visit categories_path
+    click_link "New Category"
+    expect(page).to have_content("New Category")
+  end
 end
