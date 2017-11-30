@@ -1,0 +1,5 @@
+<%= form_tag(image_user_tags_path(@image), method: 'post') do %>
+  <%= label_tag "Tag a user" %>
+  <%= collection_select :user, :id, @users, :id, :name, {}, class: 'form-control' %>
+  <%= submit_tag "Tag User", class: 'btn btn-primary' %>
+<% end %>

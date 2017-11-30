@@ -34,8 +34,8 @@
 
   <div class="user-tags">
     <% if @image.user_tags.any? %>
+      <h4>Tagged Users</h4>
       <% @image.user_tags.each do |tag| %>
-        <h4>Tagged Users</h4>
         <p>
           <strong><%= link_to tag.user.name, user_path(tag.user) %></strong> |
           <%= link_to "Untag", image_user_tag_path(@image, tag), data: {method: 'delete'} %>
@@ -46,11 +46,7 @@
     <% end %>
 
     <div class="add-tag">
-      <%= form_tag(image_user_tags_path(@image), method: 'post') do %>
-      <%= label_tag "Tag a user" %>
-      <%= collection_select :user, :id, @users, :id, :name, {}, class: 'form-control' %>
-      <%= submit_tag "Tag User", class: 'btn btn-primary' %>
-      <% end %>
+      <%= render "user_tags/form" %>
     </div>
   </div>
 </div>
@@ -77,20 +73,12 @@
 
   <div class="add-category">
     <% if @categories.any? %>
-      <%= form_tag(image_category_path(@image, @category), method: 'patch') do %>
-        <%= label_tag "Add Existing Category" %>
-        <%= collection_select :category, :id, @categories, :id, :name, {}, class: "form-control" %>
-        <%= submit_tag "Add Category", class: "btn btn-primary" %>
-      <% end %>
+      <%= render "categories/edit" %>
     <% end %>
   </div>
 
   <div class="create-category">
-    <%= form_tag(image_categories_path(@image), method: 'post') do %>
-      <%= label_tag "Add New Category" %>
-      <%= text_field_tag :name, nil, class: "form-control" %>
-      <%= submit_tag "Create Category", class: "btn btn-primary" %>
-    <% end %>
+    <%= render "categories/new" %>
   </div>
 </div>
 

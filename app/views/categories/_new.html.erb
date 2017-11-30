@@ -1,0 +1,5 @@
+<%= form_tag(image_categories_path(@image), method: 'post') do %>
+  <%= label_tag "Add New Category" %>
+  <%= text_field_tag :name, nil, class: "form-control" %>
+  <%= submit_tag "Create Category", class: "btn btn-primary" %>
+<% end %>

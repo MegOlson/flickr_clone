@@ -1,0 +1,5 @@
+<%= form_tag(image_category_path(@image, @category), method: 'patch') do %>
+  <%= label_tag "Add Existing Category" %>
+  <%= collection_select :category, :id, @categories, :id, :name, {}, class: "form-control" %>
+  <%= submit_tag "Add Category", class: "btn btn-primary" %>
+<% end %>
