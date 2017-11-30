@@ -1,0 +1,12 @@
+<h1><%= @category.name %></h1>
+
+<% if @category.images.any? %>
+  <% @category.images.each do |image| %>
+    <div class="image">
+      <h4><%= link_to image.title, image_path(image) %></h4>
+      <%= image_tag(image.photo.url(:thumb)) %>
+    </div>
+  <% end %>
+<% else %>
+  <h3>This category has no images.</h3>
+<% end %>

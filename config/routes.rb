@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
     resources :user_tags, only: [:create, :destroy]
   end
-  resources :categories
+
+  resources :categories, only: [:index, :show]
+  
   resources :users, only: [:show] do
     resources :favorites, only: [:index]
     resources :images, only: [:index]
