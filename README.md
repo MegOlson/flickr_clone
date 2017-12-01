@@ -6,7 +6,7 @@ A Web Application that mimicks the popular photo site, Flickr. Users can create 
 
 ## Installation and Setup
 
-You can access this app online at [desolate-waters-41401.herokuapp.com](https://desolate-waters-41401.herokuapp.com). To install on your own machine, follow the instructions below:
+You can access this app online at [flickr-clone-epicodus.herokuapp.com](https://flickr-clone-epicodus.herokuapp.com/). To install on your own machine, follow the instructions below:
 
 * Clone Repository: `flickr_clone`
 * Run the following commands in your Terminal:
