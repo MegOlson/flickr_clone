@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @comment = @image.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      UserMailer.image_comment(@image.user, @image).deliver
+      # UserMailer.image_comment(@image.user, @image).deliver
       flash[:notice] = "Comment posted!"
     else
       flash[:alert] = "Something went wrong!"
